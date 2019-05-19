@@ -1,11 +1,26 @@
 <div align="center">
 
-# Esx_Deliveries
+# Esx Deliveries
 ##### Delivery job hub for fivem. Rent a vehicle and complete various deliveries across town.
 
 <img src="https://i.imgur.com/bPbBg4J.png" width="690" height="194">
 
+[![npm version](https://img.shields.io/github/release/apoiat/ESX_Deliveries.svg?style=flat)](https://github.com/apoiat/ESX_Deliveries "View this project on npm")  [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+____
+
 </div>
+
+## INTRODUCTION
+**Delivery hub** without a job requirement next to the job center. Quite useful for new players entering your server. Basically, a player will go the symbols (**scooter**, **van**, **truck**), rent a vehicle and make certain deliveries around the map for **payments**. A **safe deposit** is required which is refunded once the player returns the vehicle. **Different props and animations** for each delivery type.
+
+Features:
+- 3 different delivery types - **Scooter / Van / Truck**
+- Different **props** and animations for every delivery type.
+- **Random** delivery route every time.
+- **Easy to use** - thorough guide system with **subtitles** and **marks** all along the way.
+- **Convars** to customize deliveries count.
+- **Convars** to customize payment amount and safe deposits for each delivery type.
+
 
 ### Requirements
 * ESX (for the payments)
