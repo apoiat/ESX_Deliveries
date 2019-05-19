@@ -3,7 +3,7 @@
 # Esx Deliveries
 ##### Delivery job hub for fivem. Rent a vehicle and complete various deliveries across town.
 
-<img src="https://i.imgur.com/bPbBg4J.png" width="690" height="194">
+<img src="https://i.imgur.com/OqREhqK.jpg" width="90%">
 
 [![npm version](https://img.shields.io/github/release/apoiat/ESX_Deliveries.svg?style=flat)](https://github.com/apoiat/ESX_Deliveries "View this project on npm")  [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ____
