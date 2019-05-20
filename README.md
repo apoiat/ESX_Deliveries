@@ -1,6 +1,6 @@
 <div align="center">
 
-# Esx Deliveries
+# ESX Deliveries
 ##### Delivery job hub for fivem. Rent a vehicle and complete various deliveries across town.
 
 <img src="https://i.imgur.com/OqREhqK.jpg" width="90%">
