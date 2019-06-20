@@ -32,17 +32,18 @@ namespace Esx_Deliveries_Client
 
         public static Dictionary<string, string> _U = new Dictionary<string, string>
         {
-            ["DELIVERY_NOT_AVAILABLE"]      = "This mode is ~r~not available~w~ yet. Please use the ~g~bike~w~ or ~g~van~w~.",
-            ["START_DELIVERY"]              = "Press ~INPUT_CONTEXT~ to start a delivery route. You will need to place a safe deposit of ~g~$",
-            ["SAFE_DEPOSIT_RECEIVED"]       = "Vehicle's safe deposit was removed from your bank account.",
-            ["SAFE_DEPOSIT_RETURNED"]       = "Your vehicle's safe deposit was returned to your bank account.",
-            ["SAFE_DEPOSIT_WITHHELD"]       = "Delivery ~r~Failed~w~. Your vehicle's safe deposit has been ~r~withheld~w~ by the bank.",
-            ["DELIVERY_POINT_REWARD"]       = "Delivery complete. Your received ~g~$",
-            ["GET_BACK_IN_VEHICLE"]         = "Get into your vehicle!",
-            ["REMOVE_GOODS"]                = "Press ~INPUT_CONTEXT~ to remove ~y~delivery goods~w~.",
-            ["DELIVER_INSIDE_SHOP"]         = "Get to the shop and deliver the ~y~goods~w~.",
-            ["GET_BACK_TO_DELIVERYHUB"]     = "Get back to delivery hub to return the vehicle.",
-            ["DELIVERY_VEHICLE_RETURNED"]   = "Your delivery vehicle has been returned.",
+            ["DELIVERY_NOT_AVAILABLE"] = "This mode is ~r~not available~w~ yet. Please use the ~g~bike~w~ or ~g~van~w~.",
+            ["START_DELIVERY"] = "Press ~INPUT_CONTEXT~ to start a delivery route. You will need to place a safe deposit of ~g~$",
+            ["SAFE_DEPOSIT_RECEIVED"] = "Vehicle's safe deposit was removed from your bank account.",
+            ["SAFE_DEPOSIT_RETURNED"] = "Your vehicle's safe deposit was returned to your bank account.",
+            ["SAFE_DEPOSIT_WITHHELD"] = "Delivery ~r~Failed~w~. Your vehicle's safe deposit has been ~r~withheld~w~ by the bank.",
+            ["DELIVERY_POINT_REWARD"] = "Delivery complete. Your received ~g~$",
+            ["GET_BACK_IN_VEHICLE"] = "Get into your vehicle!",
+            ["REMOVE_GOODS"] = "Press ~INPUT_CONTEXT~ to remove ~y~delivery goods~w~.",
+            ["DELIVER_INSIDE_SHOP"] = "Get to the shop and deliver the ~y~goods~w~.",
+            ["GET_BACK_TO_DELIVERYHUB"] = "Get back to delivery hub to return the vehicle.",
+            ["DELIVERY_VEHICLE_RETURNED"] = "Your delivery vehicle has been returned.",
+            ["END_DELIVERY"] = "Press ~INPUT_CONTEXT~ to end delivery. Make sure you are inside your vehicle so you can get your deposit back.",
         };
 
         public static List<Vector4> ParkingSpawns = new List<Vector4>
@@ -143,16 +144,47 @@ namespace Esx_Deliveries_Client
         public static Dictionary<int, int> OutfitScooter_drawables = new Dictionary<int, int>()
         {
             [1]     = 0,
-            [3]     = 66,
-            [4]     = 97,
-            [5]     = 0,
-            [6]     = 32,
+            [3]     = 66, //hands
+            [4]     = 97, //pants
+            [5]     = 0, //bags
+            [6]     = 32, //shoes
             [7]     = 0,
-            [8]     = 15,
+            [8]     = 15, //shirt
             [9]     = 0,
-            [11]    = 184,
-            [12]    = 18,
+            [11]    = 184, //jacket
+            [12]    = 18, 
             [13]    = 1280,
+        };
+
+        public static Dictionary<int, int> OutfitScooter_drawables_f = new Dictionary<int, int>()
+        {
+            [1] = 0,
+            [3] = 9, //hands
+            [4] = 11, //pants
+            [5] = 0, //bags
+            [6] = 11, //shoes
+            [7] = 0,
+            [8] = 13, //shirt
+            [9] = 0,
+            [11] = 295, //jacket
+            [12] = 18,
+            [13] = 1280,
+        };
+
+        public static Dictionary<int, int> OutfitScooter_drawableTextures_f = new Dictionary<int, int>()
+        {
+            [1] = 0,
+            [3] = 0,
+            [4] = 3,
+            [5] = 0,
+            [6] = 2,
+            [7] = 0,
+            [8] = 0,
+            [9] = 0,
+            [11] = 0,
+            [12] = 5,
+            [13] = 2,
+
         };
 
         public static Dictionary<int, int> OutfitScooter_drawableTextures = new Dictionary<int, int>()
@@ -199,6 +231,37 @@ namespace Esx_Deliveries_Client
             [11]    = 3,
             [12]    = 7,
             [13]    = 2,
+
+        };
+
+        public static Dictionary<int, int> OutfitVan_drawables_f = new Dictionary<int, int>()
+        {
+            [1] = 0,
+            [3] = 14, 
+            [4] = 45, 
+            [5] = 0, 
+            [6] = 27, 
+            [7] = 0,
+            [8] = 14, 
+            [9] = 0,
+            [11] = 14, 
+            [12] = 18,
+            [13] = 1280,
+        };
+
+        public static Dictionary<int, int> OutfitVan_drawableTextures_f = new Dictionary<int, int>()
+        {
+            [1] = 0,
+            [3] = 0,
+            [4] = 1,
+            [5] = 0,
+            [6] = 0,
+            [7] = 0,
+            [8] = 0,
+            [9] = 0,
+            [11] = 3,
+            [12] = 7,
+            [13] = 2,
 
         };
 

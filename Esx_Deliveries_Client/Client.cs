@@ -70,14 +70,28 @@ namespace Esx_Deliveries_Client
 
         private static void LoadWorkPlayerSkin(DeliveryType aDeliveryType)
         {
+            bool isPedFemale = IsPedModel(Game.PlayerPed.Handle, (uint)GetHashKey("mp_f_freemode_01"));
 
             var drawables = DeliveryData.OutfitScooter_drawables;
             var drawableTextures = DeliveryData.OutfitScooter_drawableTextures;
+
+            if (isPedFemale)
+            {
+                drawables = DeliveryData.OutfitScooter_drawables_f;
+                drawableTextures = DeliveryData.OutfitScooter_drawableTextures_f;
+            }
 
             if (aDeliveryType != DeliveryType.Scooter)
             {
                 drawables = DeliveryData.OutfitVan_drawables;
                 drawableTextures = DeliveryData.OutfitVan_drawableTextures;
+
+                if (isPedFemale)
+                {
+                    drawables = DeliveryData.OutfitVan_drawables_f;
+                    drawableTextures = DeliveryData.OutfitVan_drawableTextures_f;
+                }
+
             }
 
             foreach (var x in drawables)
@@ -99,6 +113,7 @@ namespace Esx_Deliveries_Client
                 SetPedComponentVariation(ped, drawable, m_drawables[drawable], m_drawableTextures[drawable], 1);
             }
         }
+        
 
 
         public Client()
@@ -168,6 +183,7 @@ namespace Esx_Deliveries_Client
 
                     var playerPed = Game.PlayerPed;
                     Vector3 pCoords = Game.PlayerPed.Position;
+
 
                     /* Moving towards vehicle delivery point logic */
                     if (m_delivery_state == DELIVERY_STATE.PLAYER_STARTED_DELIVERY)
@@ -245,12 +261,7 @@ namespace Esx_Deliveries_Client
                     /* Return to base logic */
                     if (m_delivery_state == DELIVERY_STATE.PLAYER_RETURNING_TO_BASE)
                     {
-                        /* Check if player reached the vehicle return location */
-                        if (World.GetDistance(pCoords, m_baselocation_deleter) < 1.5f)
-                        {
-                            ReturnVehicle(m_active_delivery_type);
-                            return;
-                        }
+
 
                     }
 
@@ -529,6 +540,17 @@ namespace Esx_Deliveries_Client
 
         }
 
+        private void EndDelivery()
+        {
+            if (!Game.PlayerPed.IsSittingInVehicle() && GetVehiclePedIsIn(Game.PlayerPed.Handle, false) != m_delivery_vehicle.Model.Hash)
+            {
+                FinishDelivery(m_active_delivery_type, SafeDepositReturn.NO);
+            } else
+            {
+                ReturnVehicle(m_active_delivery_type);
+            }
+                
+        }
         private void ReturnVehicle(DeliveryType aDeliveryType)
         {
             SetModelAsNoLongerNeeded((uint)m_delivery_vehicle.Handle);
@@ -598,6 +620,22 @@ namespace Esx_Deliveries_Client
             /* Check if a delivery is active */
             if (m_delivery_state != DELIVERY_STATE.DELIVERY_INACTIVE)
             {
+
+                /* Check if player reached the vehicle return location */
+                World.DrawMarker(MarkerType.ChevronUpx1, m_baselocation_deleter, Vector3.Zero, Vector3.Zero, new Vector3(1.5f, 1.5f, 1.5f), System.Drawing.Color.FromArgb(150, 255, 50, 0), true, true);
+                if (World.GetDistance(pCoords, m_baselocation_deleter) < 1.5f)
+                {
+                    Screen.DisplayHelpTextThisFrame(DeliveryData._U["END_DELIVERY"]);
+                    if (Game.IsControlJustReleased(0, Control.Context))
+                    {
+                        
+                        EndDelivery();
+                        return;
+                    }
+
+                }
+
+
                 if (m_delivery_state == DELIVERY_STATE.PLAYER_STARTED_DELIVERY)
                 {
 
@@ -618,6 +656,7 @@ namespace Esx_Deliveries_Client
                         {
                             World.DrawMarker(MarkerType.ChevronUpx1, m_active_delivery_point.Item1, Vector3.Zero, Vector3.Zero, new Vector3(1.5f, 1.5f, 1.5f), System.Drawing.Color.FromArgb(150, 255, 128, 0), true, true);
                         }
+
                     }
                 }
 

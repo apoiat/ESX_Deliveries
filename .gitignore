@@ -259,3 +259,6 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+Esx_Deliveries_Client.net.dll
+CitizenFX.Core.Client.xml
+CitizenFX.Core.Client.dll
