@@ -153,6 +153,8 @@ namespace Esx_Deliveries_Client
                 {
                     Game.DisableControlThisFrame(0, Control.Sprint);
                     DisableControlAction(0, 21, true);
+                } else {
+                    await Delay(500);
                 }
             } catch (Exception e)
             {
@@ -266,6 +268,8 @@ namespace Esx_Deliveries_Client
                     }
 
                     await Delay(500);
+                } else {
+                    await Delay(1000);
                 }
 
             } catch (Exception e)
@@ -414,10 +418,11 @@ namespace Esx_Deliveries_Client
         {
             try
             {
+
                 var rnd = new Random(DateTime.Now.Millisecond);
                 int rs = rnd.Next(0, DeliveryData.ParkingSpawns.Count);
 
-                Vector3 spawn_location = new Vector3(DeliveryData.ParkingSpawns[rs].X, DeliveryData.ParkingSpawns[rs].Y, DeliveryData.ParkingSpawns[rs].Y);
+                Vector3 spawn_location = new Vector3(DeliveryData.ParkingSpawns[rs].X, DeliveryData.ParkingSpawns[rs].Y, DeliveryData.ParkingSpawns[rs].Y);            
 
                 if (aDeliveryType == DeliveryType.Scooter) m_delivery_vehicle = await World.CreateVehicle(DeliveryData.MODEL_SCOOTER, spawn_location, DeliveryData.ParkingSpawns[rs].W);
 
@@ -556,7 +561,6 @@ namespace Esx_Deliveries_Client
             SetModelAsNoLongerNeeded((uint)m_delivery_vehicle.Handle);
             m_delivery_vehicle.Delete();
             Screen.ShowNotification(DeliveryData._U["DELIVERY_VEHICLE_RETURNED"]);
-            m_active_blip.Delete();
             FinishDelivery(aDeliveryType, SafeDepositReturn.YES);
         }
 
@@ -586,6 +590,7 @@ namespace Esx_Deliveries_Client
 
             m_delivery_point_complete.Clear();
 
+            if (m_active_blip != null) m_active_blip.Delete();
             m_active_blip = null;
             m_active_delivery_point = null;
             m_active_delivery_type = DeliveryType.NotSelected;
@@ -607,6 +612,8 @@ namespace Esx_Deliveries_Client
             }
 
             LoadDefaultPlayerSkin();
+            m_active_blip.Delete();
+            
 
         }
 
