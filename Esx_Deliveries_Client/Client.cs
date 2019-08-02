@@ -103,13 +103,7 @@ namespace Esx_Deliveries_Client
 
         public Client()
         {
-            /* Map blip creation */
-            dynamic blip = AddBlipForCoord(m_baselocation_coords.X, m_baselocation_coords.Y, m_baselocation_coords.Z);
-            SetBlipSprite(blip, 85);
-            SetBlipColour(blip, 5);
-            BeginTextCommandSetBlipName("STRING");
-            AddTextComponentString("Deliveries Hub");
-            EndTextCommandSetBlipName(blip);
+           
 
             DeliveryData.DecorCode                      = GetConvarInt("esx_deliveries_decorcode", 1450);
 
